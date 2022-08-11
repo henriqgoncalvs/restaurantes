@@ -5,6 +5,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-}
+  imges: {
+    domains: ['loremflickr.com'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
