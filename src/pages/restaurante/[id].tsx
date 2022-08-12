@@ -2,10 +2,19 @@ import { getRestaurant, getRestaurants } from '@/services/restaurants';
 import { Restaurant } from '@/types/restaurant';
 import { RestaurantView } from '@/views/restaurant-view';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
 
 const RestaurantPage = ({ restaurant }: { restaurant: Restaurant }) => {
-  return <RestaurantView restaurant={restaurant} />;
+  return (
+    <>
+      <Head>
+        <title>{restaurant.name} - Restaurantes</title>
+      </Head>
+
+      <RestaurantView restaurant={restaurant} />
+    </>
+  );
 };
 
 export default RestaurantPage;

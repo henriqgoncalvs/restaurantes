@@ -28,14 +28,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-          <title>Get In - Descubra novos restaurantes, entre na fila e faça reservas online</title>
-          <meta
-            name="description"
-            content="No Get In você encontra as melhores 
-          seleções de restaurantes e bares por todo o Brasil 
-          e pode aproveitar para fazer sua reserva online ou 
-          entrar na fila de um estabelecimento sem sair de casa. Fácil, prático e super conveniente!"
-          />
           <meta name="theme-color" content={theme.colors.primary} />
           <meta name="viewport" content="initial-scale=1" />
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
