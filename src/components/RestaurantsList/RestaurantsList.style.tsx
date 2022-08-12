@@ -8,10 +8,36 @@ export const Wrapper = styled.div`
   height: 100%;
 `;
 
+export const HeadingWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const Heading = styled.h3`
   font-size: ${({ theme }) => theme.font.size.lead};
 
   margin-bottom: 2rem;
+`;
+
+export const QueryWrapper = styled.div`
+  line-height: 0.8rem;
+
+  p {
+    font-size: 0.8rem;
+    text-align: right;
+
+    &:first-child {
+      color: ${({ theme }) => theme.colors.lightdown};
+    }
+
+    &:last-child {
+      font-size: ${({ theme }) => theme.font.size.p};
+      font-weight: bold;
+    }
+  }
 `;
 
 export const Space = styled(AntSpace)`
@@ -19,7 +45,7 @@ export const Space = styled(AntSpace)`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 `;
 
-export const RestaurantCard = styled(Card)`
+export const RestaurantCard = styled(Card)<{ imageUrl: string }>`
   position: relative;
   overflow: hidden;
 
@@ -28,7 +54,7 @@ export const RestaurantCard = styled(Card)`
 
   min-height: 150px;
 
-  background: blue;
+  background: ${({ imageUrl }) => `url(${imageUrl}) no-repeat center center`};
 
   &::before {
     content: '';

@@ -110,8 +110,13 @@ export const HeaderTitle = styled.h1`
 export const HeaderSubtitle = styled.h2`
   font-size: ${({ theme }) => theme.font.size.p};
   font-weight: normal;
+  line-height: 1.2rem;
 
   width: 70%;
+
+  ${media.lessThan('small')`
+    width: 85%;
+  `}
 `;
 
 export const Content = styled(Layout.Content)`
