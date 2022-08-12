@@ -122,6 +122,7 @@ export const HeaderSubtitle = styled.h2`
 export const Content = styled(Layout.Content)`
   max-width: ${({ theme }) => theme.breakpoints.md};
   width: 100%;
+  min-height: 80vh;
 
   display: flex;
   flex-direction: column;

@@ -1,7 +1,13 @@
 import { getRestaurant, getRestaurants } from '@/services/restaurants';
 import { Restaurant } from '@/types/restaurant';
 import { RestaurantView } from '@/views/restaurant-view';
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+} from 'next';
 import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
 
@@ -19,23 +25,11 @@ const RestaurantPage = ({ restaurant }: { restaurant: Restaurant }) => {
 
 export default RestaurantPage;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const restaurantsResponse = await getRestaurants({ page: 1, limit: -1 });
-
-  const paths = restaurantsResponse.data.map((restaurant) => ({
-    params: {
-      id: restaurant.id,
-    },
-  }));
-
-  return { paths, fallback: false };
-};
-
 interface IParams extends ParsedUrlQuery {
   id: string;
 }
 
-export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
+export const getServerSideProps: GetServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const { id } = ctx.params as IParams;
 
   try {
