@@ -1,6 +1,6 @@
 import { getRestaurant, getRestaurants } from '@/services/restaurants';
 import { Restaurant } from '@/types/restaurant';
-import { RestaurantView } from '@/views/RestaurantView';
+import { RestaurantView } from '@/views/restaurant-view';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 

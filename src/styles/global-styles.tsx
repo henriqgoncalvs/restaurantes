@@ -6,9 +6,7 @@ ${normalize}
 
 body {
     font-family: 'Poppins', sans-serif;
-    // Used for usability. Lets the browser shows the content first before the font is loaded.
     font-display: swap;
-    // Use 1rem as 10px
     font-size: 62.5%;
 
     color: ${({ theme }) => theme.colors.darkdown};

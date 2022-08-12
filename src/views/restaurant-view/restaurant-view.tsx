@@ -2,7 +2,7 @@ import { Restaurant } from '@/types/restaurant';
 import { Divider } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
-import * as S from './RestaurantView.style';
+import * as S from './restaurant-view.style';
 
 type InfoBoxP = {
   title: string;
@@ -22,7 +22,7 @@ const InfoBox = ({ title, description, size = 'md' }: InfoBoxP) => {
 export const RestaurantView = ({ restaurant }: { restaurant: Restaurant }) => {
   return (
     <S.Layout>
-      <S.Header imageUrl={restaurant.image}>
+      <S.Header imageurl={restaurant.image}>
         <S.HeaderContent>
           <Link href="/" passHref>
             <S.BackButton>Voltar</S.BackButton>

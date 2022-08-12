@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-import { RestaurantsList } from '@/components/RestaurantsList';
+import { RestaurantsList } from '@/components/restaurants-list';
 import { getRestaurants } from '@/services/restaurants';
-import useDebounce from '@/hooks/useDebounce';
+import useDebounce from '@/hooks/use-debounce';
 
-import * as S from './HomeView.style';
+import * as S from './home-view.style';
 import { RestaurantsConsumer, RestaurantsProvider } from '@/contexts/restaurants-provider';
 
 export const HomeView = () => {
@@ -23,19 +23,22 @@ export const HomeView = () => {
         </S.Header>
 
         <S.Content>
-          <>
-            <RestaurantsConsumer>
-              {(value) => (
-                <S.Search
-                  placeholder="Encontre um restaurante"
-                  prefix={<S.SearchIcon />}
-                  onChange={(e) => value.setSearch(e.target.value)}
-                />
-              )}
-            </RestaurantsConsumer>
+          <RestaurantsConsumer>
+            {(value) => (
+              <S.Search
+                placeholder="Encontre um restaurante"
+                prefix={<S.SearchIcon />}
+                onChange={(e) => {
+                  if (e.target.value) {
+                    value.setSearch(e.target.value);
+                    value.setPage(1);
+                  }
+                }}
+              />
+            )}
+          </RestaurantsConsumer>
 
-            <RestaurantsList />
-          </>
+          <RestaurantsList />
         </S.Content>
       </S.Layout>
     </RestaurantsProvider>

@@ -6,7 +6,7 @@ import { useRef } from 'react';
 
 import { useRestaurantsContext } from '@/contexts/restaurants-provider';
 
-import * as S from './RestaurantsList.style';
+import * as S from './restaurants-list.style';
 import { getRestaurants, GetRestaurantsResponse } from '@/services/restaurants';
 
 export const RestaurantsList = () => {
@@ -42,7 +42,7 @@ export const RestaurantsList = () => {
           {restaurantsData?.data.map((restaurant) => (
             <Link href={`/restaurante/${restaurant.id}`} passHref key={restaurant.id}>
               <a>
-                <S.RestaurantCard size="small" imageUrl={restaurant.image}>
+                <S.RestaurantCard size="small" imageurl={restaurant.image}>
                   <p>{restaurant.name}</p>
                 </S.RestaurantCard>
               </a>
@@ -54,8 +54,10 @@ export const RestaurantsList = () => {
       {restaurantsData && (
         <Pagination
           defaultCurrent={1}
+          // Está sempre retornando 30, por isso está limitando a paginação e no search mostrando 3 páginas
           total={restaurantsData?.pagination?.total}
           pageSize={restaurantsData?.pagination?.per_page}
+          current={page}
           onChange={(page) => {
             if (headingRef?.current) {
               headingRef.current.scrollIntoView({ behavior: 'smooth' });

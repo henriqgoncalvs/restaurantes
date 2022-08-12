@@ -45,7 +45,7 @@ export const Space = styled(AntSpace)`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 `;
 
-export const RestaurantCard = styled(Card)<{ imageUrl: string }>`
+export const RestaurantCard = styled(Card)<{ imageurl: string }>`
   position: relative;
   overflow: hidden;
 
@@ -54,7 +54,7 @@ export const RestaurantCard = styled(Card)<{ imageUrl: string }>`
 
   min-height: 150px;
 
-  background: ${({ imageUrl }) => `url(${imageUrl}) no-repeat center center`};
+  background: ${({ imageurl }) => `url(${imageurl}) no-repeat center center`};
 
   &::before {
     content: '';

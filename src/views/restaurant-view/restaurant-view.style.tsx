@@ -8,13 +8,13 @@ export const Layout = styled(AntLayout)`
   background: ${({ theme }) => theme.colors.white};
 `;
 
-export const Header = styled(AntLayout.Header)<{ imageUrl: string }>`
+export const Header = styled(AntLayout.Header)<{ imageurl: string }>`
   position: relative;
 
   min-height: max(13rem, 15vh);
   padding: 0 2rem;
 
-  background: ${({ imageUrl }) => `url(${imageUrl}) no-repeat center center`};
+  background: ${({ imageurl }) => `url(${imageurl}) no-repeat center center`};
   background-size: 100%;
 
   &::before {

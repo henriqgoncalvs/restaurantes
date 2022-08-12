@@ -1,4 +1,4 @@
-import useDebounce from '@/hooks/useDebounce';
+import useDebounce from '@/hooks/use-debounce';
 import { createContext, useContext, useState } from 'react';
 
 type RestaurantsProviderProps = {
