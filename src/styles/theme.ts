@@ -23,25 +23,34 @@ const font = {
   // family: { heading: "Roboto" },
   size: {
     heading: {
-      1: '3.2rem',
-      2: '2.4rem',
-      3: '2rem',
-      4: '1.7rem',
-      5: '1.5rem',
-      6: '1.6rem',
+      1: 1.9,
+      2: 1.5,
+      3: 1.3,
+      4: 1,
+      5: 0.8,
+      6: 0.6,
     },
-    lead: '1.7rem',
-    p: '1.4rem',
-    sm: '1.2rem',
+    lead: '1.5rem',
+    p: '1.1rem',
+    sm: '1rem',
   },
+};
+
+const breakpoints = {
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
 };
 
 export const theme: DefaultTheme = {
   colors,
   rounded,
   font,
+  breakpoints,
 };
 
 export type Colors = typeof colors;
 export type Rounded = typeof rounded;
 export type Font = typeof font;
+export type Breakpoints = typeof breakpoints;
