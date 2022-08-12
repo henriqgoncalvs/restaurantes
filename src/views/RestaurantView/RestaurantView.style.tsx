@@ -88,7 +88,8 @@ export const RestaurantLogo = styled.div`
 
 export const RestaurantInfo = styled(Space)`
   h1,
-  p {
+  p,
+  a {
     margin: 0;
     color: ${({ theme }) => theme.colors.white};
   }
@@ -97,7 +98,8 @@ export const RestaurantInfo = styled(Space)`
     line-height: 1.4rem;
   }
 
-  p {
+  p,
+  a {
     font-size: 0.8rem;
   }
 

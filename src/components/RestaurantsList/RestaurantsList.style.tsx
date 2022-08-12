@@ -22,7 +22,7 @@ export const Heading = styled.h3`
   margin-bottom: 2rem;
 `;
 
-export const QueryWrapper = styled.div`
+export const SearchWrapper = styled.div`
   line-height: 0.8rem;
 
   p {

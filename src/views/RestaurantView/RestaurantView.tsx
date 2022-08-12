@@ -1,3 +1,4 @@
+import { Restaurant } from '@/types/restaurant';
 import { Divider } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,10 +19,10 @@ const InfoBox = ({ title, description, size = 'md' }: InfoBoxP) => {
   );
 };
 
-export const RestaurantView = () => {
+export const RestaurantView = ({ restaurant }: { restaurant: Restaurant }) => {
   return (
     <S.Layout>
-      <S.Header imageUrl="https://loremflickr.com/640/480/cuisine">
+      <S.Header imageUrl={restaurant.image}>
         <S.HeaderContent>
           <Link href="/" passHref>
             <S.BackButton>Voltar</S.BackButton>
@@ -29,37 +30,32 @@ export const RestaurantView = () => {
 
           <S.RestaurantLogo>
             <Image
-              src="https://loremflickr.com/500/500/logo"
-              alt="Restaurante"
+              src={restaurant.logo}
+              alt={`Logo do ${restaurant.name}`}
               width={500}
               height={500}
               objectFit="fill"
             />
           </S.RestaurantLogo>
           <S.RestaurantInfo direction="vertical" size="middle">
-            <h1>Restaurante 1</h1>
-            <p>(11) 3210-9876</p>
-            <p>http://www.mammamia.com.br</p>
+            <h1>{restaurant.name}</h1>
+            <p>{restaurant.telephone}</p>
+            <a href={restaurant.website} rel="noreferrer">
+              {restaurant.website}
+            </a>
           </S.RestaurantInfo>
         </S.HeaderContent>
       </S.Header>
 
       <S.Content>
-        <InfoBox
-          size="lg"
-          title="Descrição"
-          description="O Mamma Mia é um restaurante especializado em culinária italiana e vinhos."
-        />
-        <InfoBox title="Faixa de preço" description="De R$40 a R$70 por pessoa" />
+        <InfoBox size="lg" title="Descrição" description={restaurant.description} />
+        <InfoBox title="Faixa de preço" description={restaurant.price_range} />
 
         <Divider style={{ margin: '0 auto 2.4rem' }} />
 
-        <InfoBox
-          title="Horários de Funcionamento"
-          description="De terça à domingo, das 17:00 ãs 23:00."
-        />
+        <InfoBox title="Horários de Funcionamento" description={restaurant.opening_hours} />
 
-        <InfoBox title="Formas de pagamento" description="Dinheiro, cartão de crédito e débito." />
+        <InfoBox title="Formas de pagamento" description={restaurant.payment_methods} />
       </S.Content>
     </S.Layout>
   );
